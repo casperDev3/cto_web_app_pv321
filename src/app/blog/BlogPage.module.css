@@ -1,0 +1,99 @@
+/* Контейнер сторінки */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #f9f9f9; /* Легкий фоновий колір */
+}
+
+/* Заголовок сторінки */
+.header {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Сітка для карток */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Стилізація картки */
+.card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    background-color: #fff;
+    color: #333;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+/* Зображення */
+.image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    object-fit: cover;
+}
+
+/* Заголовок у картці */
+.title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+/* Основний текст/опис у картці */
+.text {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+/* Блок із кнопками */
+.buttons {
+    margin-top: auto; /* "Приклеїти" кнопку внизу картки, якщо тексту багато */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Кнопка "Переглянути" (звичайне посилання) */
+.viewBtn {
+    background-color: #0366d6;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+}
+
+.viewBtn:hover {
+    background-color: #024ea4;
+}
+
+/* Кнопка "Поділитись" */
+.shareBtn {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.shareBtn:hover {
+    background-color: #218838;
+}
