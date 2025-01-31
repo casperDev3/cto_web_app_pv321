@@ -4,6 +4,7 @@ import Link from 'next/link';
 import styles from './BlogPage.module.css';
 import {useCallback, useEffect, useState} from 'react';
 import api from "@/utils/api";
+import {showToast} from "react-next-toast";
 
 interface Post {
     id: number;
@@ -50,6 +51,13 @@ const BlogPage = () => {
         }
     }, []);
 
+    const handleRemove = async (post: Post) => {
+        const data = await api.deleteData("blog", post.id);
+        // remove post from the list
+        data && setPosts(posts.filter(p => p.id !== post.id));
+        data && showToast.success('Пост успішно видалено');
+    }
+
     if (loading) {
         return <div className={styles.container}><p>Завантаження...</p></div>;
     }
@@ -58,7 +66,6 @@ const BlogPage = () => {
         return <div className={styles.container}><p>Помилка: {error}</p></div>;
     }
 
-    console.log("__posts", posts);
 
     const filteredPosts = posts.filter(post =>
         post.title.toLowerCase().includes(search.toLowerCase()) &&
@@ -129,6 +136,14 @@ const BlogPage = () => {
                                 onClick={() => handleShare(post)}
                             >
                                 Поділитись
+                            </button>
+                        {/*    add btn remove*/}
+                            <button
+                                type="button"
+                                className={styles.removeBtn}
+                                onClick={() => handleRemove(post)}
+                            >
+                                Видалити
                             </button>
                         </div>
                     </div>

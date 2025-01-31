@@ -97,3 +97,19 @@
 .shareBtn:hover {
     background-color: #218838;
 }
+
+.removeBtn{
+    background-color: #f00;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.removeBtn:hover {
+    background-color: #c00;
+}
+
+

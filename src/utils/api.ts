@@ -26,6 +26,36 @@ class Api implements IApi {
             throw new Error(err.message || 'Невідома помилка');
         }
     }
+
+    async postData(endpoint, body, authToken = null): Promise<any> {
+        try {
+            const res = await fetch(`${this.baseUrl}/${endpoint}/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    // Authorization: `Bearer ${authToken}`,
+                },
+                body: JSON.stringify(body),
+            });
+            return (await res.json()).data;
+        } catch (err: any) {
+            throw new Error(err.message || 'Невідома помилка');
+        }
+    }
+
+    async deleteData(endpoint, id, authToken = null): Promise<any> {
+        try {
+            const res = await fetch(`${this.baseUrl}/${endpoint}/${id}/`, {
+                method: 'DELETE',
+                headers: {
+                    // Authorization: `Bearer ${authToken}`,
+                },
+            });
+            return (await res.json()).data;
+        } catch (err: any) {
+            throw new Error(err.message || 'Невідома помилка');
+        }
+    }
 }
 
 // singleton
