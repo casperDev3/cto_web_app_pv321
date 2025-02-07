@@ -9,6 +9,7 @@ export default function Home() {
             <ul>
                 <li>
                     <a href={'/blog'}>Blog</a>
+                    <a href={'/team'}>Team</a>
                 </li>
             </ul>
         </>
