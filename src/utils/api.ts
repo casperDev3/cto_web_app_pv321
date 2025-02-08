@@ -20,7 +20,7 @@ class Api implements IApi {
             };
             if (authToken) headers["Authorization"] = `Bearer ${authToken}`;
 
-            const res = await fetch(`${this.baseUrl}/${endpoint}/`, {
+            const res = await fetch(`${this.baseUrl}/${endpoint}`, {
                 method,
                 headers,
                 body: body ? JSON.stringify(body) : undefined,
@@ -39,7 +39,7 @@ class Api implements IApi {
 
     async getData(endpoint: string, authToken = null): Promise<any> {
         const response = await this.request(endpoint, "GET", undefined, authToken);
-        return response?.data || response; // Поддержка старого формата ответа
+        return response?.data || response;
     }
 
     async postData(endpoint: string, body: any, authToken: string | null = null): Promise<any> {
@@ -52,15 +52,11 @@ class Api implements IApi {
             const res = await fetch(`${this.baseUrl}/${endpoint}/`, {
                 method: "POST",
                 headers,
-                body: JSON.stringify({ data: body }), // Обертываем тело запроса в объект с ключом "data"
+                body: JSON.stringify({ data: body }),
             });
 
             const responseData = await res.json().catch(() => null);
 
-            if (!res.ok) {
-                console.error("Ошибка сервера:", responseData);
-                throw new Error(responseData?.message || `HTTP Error ${res.status}`);
-            }
 
             return responseData?.data || responseData;
         } catch (err: any) {
@@ -78,15 +74,10 @@ class Api implements IApi {
             const res = await fetch(`${this.baseUrl}/${endpoint}/`, {
                 method: "PUT",
                 headers,
-                body: JSON.stringify({ data: body }), // Оставляем обертку "data", раз сервер требует
+                body: JSON.stringify({ data: body }),
             });
 
             const responseData = await res.json().catch(() => null);
-
-            if (!res.ok) {
-                console.error("Ошибка сервера:", responseData);
-                throw new Error(responseData?.message || `HTTP Error ${res.status}`);
-            }
 
             return responseData?.data || responseData;
         } catch (err: any) {
@@ -97,7 +88,7 @@ class Api implements IApi {
 
 
     async deleteData(endpoint: string, id: number, authToken = null): Promise<any> {
-        const response = await this.request(`${endpoint}/${id}`, "DELETE", undefined, authToken);
+        const response = await this.request(`${endpoint}/${id}/`, "DELETE", undefined, authToken);
         return response?.data || response;
     }
 }

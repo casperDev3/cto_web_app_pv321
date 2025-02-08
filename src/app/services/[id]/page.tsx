@@ -34,7 +34,7 @@ const ServicePage = () => {
                     throw new Error("Невірний формат відповіді");
                 }
                 setService(data);
-                setEditedService(data); // Заполняем форму редактирования текущими данными
+                setEditedService(data);
             } catch (err: any) {
                 setError(err.message || "Помилка завантаження сервісу");
             } finally {
@@ -54,22 +54,19 @@ const ServicePage = () => {
         try {
             await api.putData(`services/${id}`, editedService);
             toast.success("Сервіс оновлено успішно!");
-            window.location.href = `/services/${id}`; // Перезагрузка страницы
+            window.location.href = `/services/${id}`;
         } catch (err: any) {
             console.error("Update error:", err);
             toast.error(err.message || "Помилка при оновленні сервісу");
         }
     };
 
-
-
-
     const handleDelete = async () => {
         if (!confirm("Ви впевнені, що хочете видалити цей сервіс?")) return;
         try {
             await api.deleteData("services", Number(id));
             toast.success("Сервіс видалено!");
-            router.push("/services"); // Перенаправление назад
+            router.push("/services");
         } catch (err: any) {
             toast.error(err.message || "Помилка при видаленні сервісу");
         }
@@ -99,6 +96,7 @@ const ServicePage = () => {
                     <p><strong>Категорія:</strong> {service.category}</p>
                     <button type="button" onClick={() => setIsEditing(true)}>Редагувати</button>
                     <button type="button" className={styles.delete} onClick={handleDelete}>Видалити</button>
+                    <button type="button" className={styles.cancel} onClick={() => window.location.href = `/services`}>На головну</button>
                 </div>
             )}
         </div>
