@@ -1,0 +1,105 @@
+/* Простая анимация для появления карточек */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    opacity: 0;  /* Начальная невидимость */
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.container {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+
+.card {
+    background-color: lightblue;  /* Это поможет точно понять, применяется ли стиль */
+    opacity: 0;
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+/* Округление углов и плавный переход цвета для карточек */
+.card {
+    width: 18rem;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px; /* Округление углов */
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Для соблюдения округления углов */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавные переходы */
+}
+
+/* Эффект на карточку при наведении */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Плавный переход цвета для текста автора и рейтинга */
+.card .list-group-item {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Цвет фона и текста при наведении на элемент списка */
+.card .list-group-item:hover {
+    background-color: #f0f8ff;  /* Цвет фона при наведении */
+    color: #007bff;  /* Цвет текста при наведении */
+}
+
+/* Для текста рейтинга и автора */
+.card .list-group-item strong {
+    color: #333; /* Цвет по умолчанию для текста */
+    font-weight: 600;
+    transition: color 0.3s ease; /* Плавный переход цвета */
+}
+
+/* Плавный цвет для рейтинга */
+.card .list-group-item span {
+    color: #ff9800;  /* Цвет для звездочек рейтинга */
+    transition: color 0.3s ease;
+}
+
+/* Стиль для кнопки */
+/* Стиль для кнопки */
+button {
+    background-color: #007bff;
+    border: 1px solid #007bff;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 50px; /* Закругленные углы */
+    transition: all 0.3s ease; /* Плавный переход для всех изменений */
+    cursor: pointer; /* Курсор в виде руки */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Эффект при наведении на кнопку */
+button:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+    transform: scale(1.05); /* Увеличение размера кнопки */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Увеличенная тень */
+}
+
+/* Эффект при нажатии на кнопку */
+button:active {
+    background-color: #003d7a;
+    transform: scale(1); /* Возвращаем размер к исходному */
+}
+
+/* Стили для выравнивания кнопки по правому краю */
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
