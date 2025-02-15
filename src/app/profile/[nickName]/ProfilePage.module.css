@@ -1,0 +1,391 @@
+/* === CSS-переменные и глобальные настройки === */
+:root {
+    --primary-color: #5fa5ba;
+    --primary-color-dark: #0095a3;
+    --text-color: #333;
+    --secondary-text-color: #666;
+    --cont-color: #fff;
+    --bg-color: #ffffff;
+    --border-radius: 12px;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background: var(--bg-color); /* Фоновый цвет страницы */
+}
+
+/* === Основной контейнер профиля === */
+.profileContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Open Sans", sans-serif;
+    color: var(--text-color);
+    width: 100%;
+    padding-bottom: 40px;
+}
+
+/* === Баннер (cover) === */
+.coverImage {
+    position: relative;
+    width: 95%;
+    height: 230px;
+    margin-top: 15px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+/* Кнопка изменения фона */
+.editCoverBtn {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background-color: var(--primary-color);
+    color: var(--cont-color);
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.editCoverBtn:hover {
+    background-color: var(--primary-color-dark);
+    transform: scale(1.05);
+}
+
+/* === Контейнер с данными профиля === */
+.profileContent {
+    background-color: var(--cont-color);
+    width: 60%;
+    padding: 40px 20px 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    position: relative;
+    margin-top: -40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* === Аватар === */
+.avatarSection {
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.avatarWrapper {
+    position: relative;
+}
+
+.avatar {
+    width: 140px;
+    height: 140px;
+    border: 4px solid var(--cont-color);
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: var(--shadow);
+}
+
+/* Кнопка редактирования аватара */
+.editAvatarBtn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(25%, -25%);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    color: var(--cont-color);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: var(--shadow);
+}
+
+.editAvatarBtn:hover {
+    background-color: var(--primary-color-dark);
+    transform: scale(1.1);
+}
+
+/* === Заголовки (Имя и Ник) === */
+.userNick {
+    margin: 4px 0;
+    font-size: 1rem;
+    color: var(--secondary-text-color);
+}
+
+.userName {
+    font-size: 3rem;
+    margin-top: 55px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    flex: 1;
+    font-family: "Roboto Slab", serif;
+}
+
+.userMainInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* === Элементы статистики === */
+.statItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    font-size: 1rem;
+    margin-top: 100px;
+    text-align: center;
+    color: var(--secondary-text-color);
+}
+
+.statItem strong {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color); /* Основной цвет текста */
+}
+
+/* === Блок "Обо мне" === */
+.aboutContainer {
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    margin: 20px auto;
+    padding: 15px 20px;
+    background: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    border: 1px solid #ddd;
+}
+
+.aboutContainer h2 {
+    font-family: "Roboto Slab", serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.aboutContainer p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--secondary-text-color);
+}
+
+/* === Кнопки === */
+.custom_buttons {
+    margin: 10px;
+    background-color: var(--primary-color);
+    color: var(--cont-color);
+    border: none;
+    border-radius: 6px;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.custom_buttons:hover {
+    background-color: var(--primary-color-dark);
+    transform: scale(1.05);
+}
+
+/* === Группа кнопок === */
+.buttonGroup {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* === Оверлей модального окна === */
+.popupOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* === Контент модального окна === */
+.popupContent {
+    background: var(--cont-color);
+    padding: 24px;
+    width: 500px;
+    max-width: 90%;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    animation: popupFadeIn 0.3s ease-in-out;
+}
+
+/* Анимация появления модального окна */
+@keyframes popupFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* === Поле ввода в модальном окне === */
+.popupContent input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    margin-bottom: 15px;
+    transition: border-color 0.3s ease;
+}
+
+.popupContent input:focus {
+    border-color: var(--primary-color);
+}
+
+/* === Кнопки в модальном окне === */
+.popupButtons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Кнопка "Сохранить" */
+.popupSaveBtn {
+    background-color: var(--primary-color);
+    color: var(--cont-color);
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.popupSaveBtn:hover {
+    background-color: var(--primary-color-dark);
+    transform: scale(1.05);
+}
+
+/* Кнопка "Закрыть" */
+.popupCloseBtn {
+    background-color: #ccc;
+    color: #333;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.popupCloseBtn:hover {
+    background-color: #bbb;
+    transform: scale(1.05);
+}
+
+/* === Контейнер с данными пользователя === */
+.userInfoContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+/* === Мобильные стили === */
+@media (max-width: 1024px) {
+    .profileContent {
+        width: 90%;
+    }
+
+    .userName {
+        font-size: 2rem;
+    }
+
+    .statItem strong {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .profileContent {
+        width: 90%;
+        padding: 10px 15px;
+    }
+
+    .avatar {
+        width: 110px;
+        height: 110px;
+    }
+
+    .userName {
+        font-size: 1.9rem;
+    }
+
+    .statItem {
+        margin-top: 140px;
+    }
+
+    .statItem strong {
+        font-size: 1rem;
+    }
+
+    .aboutContainer {
+        width: 90%;
+    }
+
+    .buttonGroup {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .custom_buttons {
+        width: 80%;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .profileContent {
+        width: 95%;
+    }
+
+    .avatar {
+        width: 90px;
+        height: 90px;
+    }
+
+    .userName {
+        font-size: 1.5rem;
+    }
+
+    .statItem {
+        margin-top: 30px;
+    }
+
+    .statItem strong {
+        font-size: 1rem;
+    }
+}
