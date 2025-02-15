@@ -1,40 +1,42 @@
+'use client';  // Додаємо цю директиву для перетворення компонента на клієнтський
 
 import React from 'react';
 import './PreventionPage.css';
 
 const PreventionPage: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const formData = new FormData(e.target as HTMLFormElement);
-    const data = {
-        fullName: formData.get('fullName') as string,
-        phoneNumber: formData.get('phoneNumber') as string,
-        email: formData.get('email') as string,
-        telegramUser: formData.get('telegramUser') as string || null,
-    };
+        e.preventDefault();
+        const formData = new FormData(e.target as HTMLFormElement);
+        const data = {
+            fullName: formData.get('fullName') as string,
+            phoneNumber: formData.get('phoneNumber') as string,
+            email: formData.get('email') as string,
+            telegramUser: formData.get('telegramUser') as string || null,
+        };
 
-    try {
-        const response = await fetch('http://127.0.0.1:5002/submit_form', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        });
+        console.log('Form data:', data);  // Логування даних перед відправкою
 
-        const result = await response.json();
+        try {
+            const response = await fetch('http://127.0.0.1:5002/submit_form', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
 
-        if (response.ok) {
-            alert(result.message || 'Дані успішно відправлено!');
-        } else {
-            alert(result.error || 'Помилка при відправці даних.');
+            const result = await response.json();
+
+            if (response.ok) {
+                alert(result.message || 'Дані успішно відправлено!');
+            } else {
+                alert(result.error || 'Помилка при відправці даних.');
+            }
+        } catch (error) {
+            console.error('Помилка:', error.message);  // Покращене логування помилки
+            alert('Помилка з’єднання з сервером.');
         }
-    } catch (error) {
-        console.error('Помилка:', error);
-        alert('Помилка з’єднання з сервером.');
-    }
-};
-
+    };
 
     return (
         <div>

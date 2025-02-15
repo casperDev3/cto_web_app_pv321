@@ -1,6 +1,5 @@
 'use client';
 import Link from 'next/link';
-import PreventionPage from './PreventionPage';
 
 export default function Home() {
     return (
@@ -9,13 +8,16 @@ export default function Home() {
             <ul>
                 <li>
                     <a href={'/blog'}>Blog</a>
-                    <br/>
+                    <br />
                     <a href={'/contact_us'}>Contact Us Form</a>
                 </li>
-                 <li>
-                     <Link href={'/reviews'}>Reviews</Link>
-                 </li>
-                 <PreventionPage />
+                <li>
+                    <Link href={'/reviews'}>Reviews</Link>
+                </li>
+                {/* Додаємо посилання на вашу сторінку профілактичного обслуговування */}
+                <li>
+                    <Link href={'/prevention'}>Prevention Services</Link>
+                </li>
             </ul>
         </>
     );
