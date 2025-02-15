@@ -3,8 +3,8 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import api from "@/utils/api";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import {showToast} from "react-next-toast";
+
 import styles from "@/app/services/ServicesPage.module.css";
 import { useRouter, useSearchParams } from 'next/navigation';
 
@@ -77,11 +77,11 @@ const ServicePage = () => {
             });
 
             setServices([...services, createdService]);
-            toast.success("Сервіс додано успішно!");
+            showToast.success("Сервіс додано успішно!");
             setShowForm(false);
             setNewService({ name: "", description: "", price: 0, category: "" });
         } catch (err: any) {
-            toast.error(err.message || "Помилка при створенні сервісу");
+            showToast.error(err.message || "Помилка при створенні сервісу");
         }
     };
 
