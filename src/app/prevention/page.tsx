@@ -1,4 +1,4 @@
-'use client';  // Додаємо цю директиву для перетворення компонента на клієнтський
+'use client'; 
 
 import React from 'react';
 import './PreventionPage.css';
@@ -14,7 +14,7 @@ const PreventionPage: React.FC = () => {
             telegramUser: formData.get('telegramUser') as string || null,
         };
 
-        console.log('Form data:', data);  // Логування даних перед відправкою
+        console.log('Form data:', data);  
 
         try {
             const response = await fetch('http://127.0.0.1:5002/submit_form', {
@@ -33,7 +33,7 @@ const PreventionPage: React.FC = () => {
                 alert(result.error || 'Помилка при відправці даних.');
             }
         } catch (error) {
-            console.error('Помилка:', error.message);  // Покращене логування помилки
+            console.error('Помилка:', error.message); 
             alert('Помилка з’єднання з сервером.');
         }
     };
