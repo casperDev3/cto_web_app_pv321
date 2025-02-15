@@ -1,10 +1,10 @@
 'use client';
 
-import ContactForm from '@/components/ContactForm/contactForm';
+import ContactForm from '@/components/contactForm/contactForm';
 
 export default function TestContactFormPage() {
     return (
-        <div style={{ padding: '20px', maxWidth: '600px', margin: '0 auto' }}>
+        <div className="container-centered">
     <h1>Contact Us</h1>
     <ContactForm />
     </div>

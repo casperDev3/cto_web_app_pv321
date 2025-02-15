@@ -2,7 +2,7 @@
 
 import api from '@/utils/api';
 import {showToast} from "react-next-toast";
-
+import styles from "@/components/contactForm/contact_us.module.css";
 export default function ContactForm() {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -34,14 +34,15 @@ export default function ContactForm() {
             } else {
                 showToast.error(response.message || 'Помилка при відправці форми.');
             }
-        } catch (error) {
+        } catch {
             showToast.error('Сталася помилка при відправці форми.');
         }
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={styles.contact_us}>
             <div>
+                {/* eslint-disable-next-line */}
                 <label htmlFor="name">Ім'я:</label>
                 <input
                     type="text"

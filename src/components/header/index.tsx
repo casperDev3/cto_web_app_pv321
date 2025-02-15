@@ -1,26 +1,28 @@
+import Link from "next/link";
+import "./header.css"
 const Header = () => {
     return (
-        <>
             <header>
-                <h2>Header</h2>
+                <Link id="title" href="/">
+                    <h2>STO</h2>
+                </Link>
                 <nav>
                     <ul>
                         <li>
-                            <a href="/">Home</a>
+                            <Link href="/">Home</Link>
                         </li>
                         <li>
-                            <a href="/blog">Blog</a>
+                            <Link href="/blog">Blog</Link>
                         </li>
                         <li>
-                            <a href="/contact_us">Contact us</a>
+                            <Link href="/contact_us">Contact us</Link>
                         </li>
                         <li>
-                            <a href="/services">Service</a>
+                            <Link href="/services">Service</Link>
                         </li>
                     </ul>
                 </nav>
             </header>
-        </>
     );
 }
 

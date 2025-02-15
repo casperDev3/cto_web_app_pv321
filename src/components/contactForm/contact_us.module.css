@@ -1,0 +1,33 @@
+.contact_us {
+    width: 50vw;
+    padding: 10px;
+    border: 2px solid gray;
+    border-radius: 10px;
+}
+
+.contact_us input,
+.contact_us textarea {
+    width: 100%;
+    resize:vertical;
+}
+
+.contact_us>div {
+    width: 100%;
+}
+
+.contact_us label{
+    color: #858585;
+}
+
+.contact_us button {
+    width: 100%;
+}
+
+
+.contact_us form {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
