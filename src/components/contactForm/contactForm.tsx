@@ -35,7 +35,7 @@ export default function ContactForm() {
                 showToast.error(response.message || 'Помилка при відправці форми.');
             }
         } catch (error) {
-            showToast.error('Сталася помилка при відправці форми.';)
+            showToast.error('Сталася помилка при відправці форми.');
         }
     };
 
