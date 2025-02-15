@@ -9,6 +9,8 @@ export default function Home() {
             <ul>
                 <li>
                     <a href={'/blog'}>Blog</a>
+                    <br/>
+                    <a href={'/contact_us'}>Contact Us Form</a>
                 </li>
             </ul>
         </>
