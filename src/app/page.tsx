@@ -1,5 +1,5 @@
 'use client';
-// import Link from 'next/link';
+import Link from 'next/link';
 
 
 export default function Home() {
@@ -10,6 +10,9 @@ export default function Home() {
                 <li>
                     <a href={'/blog'}>Blog</a>
                 </li>
+                 <li>
+                     <Link href={'/reviews'}>Reviews</Link>
+                 </li>
             </ul>
         </>
     );
