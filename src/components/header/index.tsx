@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Header = () => {
     return (
         <>
@@ -13,6 +15,9 @@ const Header = () => {
                         </li>
                         <li>
                             <a href="/contact">Contact</a>
+                        </li>
+                        <li>
+                            <Link href="/Contact_info">General Information</Link>
                         </li>
                     </ul>
                 </nav>
