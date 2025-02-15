@@ -1,5 +1,5 @@
 'use client';
-// import Link from 'next/link';
+import Link from 'next/link';
 
 
 export default function Home() {
@@ -12,6 +12,9 @@ export default function Home() {
                     <br/>
                     <a href={'/contact_us'}>Contact Us Form</a>
                 </li>
+                 <li>
+                     <Link href={'/reviews'}>Reviews</Link>
+                 </li>
             </ul>
         </>
     );
