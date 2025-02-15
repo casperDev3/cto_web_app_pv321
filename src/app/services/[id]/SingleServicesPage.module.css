@@ -1,0 +1,99 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.container h1,
+.container h2 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.container p {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.container p strong {
+    color: #333;
+}
+
+.container input[type="text"],
+.container input[type="number"],
+.container textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.container textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.container button {
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.container button[type="button"] {
+    background-color: #007bff;
+    color: white;
+}
+
+.container button[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+.container button[type="button"].cancel {
+    background-color: #6c757d;
+}
+
+.container button[type="button"].cancel:hover {
+    background-color: #5a6268;
+}
+
+.container button[type="button"].delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.container button[type="button"].delete:hover {
+    background-color: #c82333;
+}
+
+.editForm {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.editForm h2 {
+    margin-top: 0;
+}
+
+.serviceDetails {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.serviceDetails button {
+    margin-right: 10px;
+}
+

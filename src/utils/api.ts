@@ -1,10 +1,9 @@
-import {baseUrl} from "@/constants";
+import { baseUrl } from "@/constants";
 
 interface IApi {
-    getData: (
-        endpoint: string,
-        authToken?: string | null
-    ) => Promise<any>;
+    getData: (endpoint: string, authToken?: string | null) => Promise<any>;
+    postData: (endpoint: string, body: any, authToken?: string | null) => Promise<any>;
+    deleteData: (endpoint: string, id: number, authToken?: string | null) => Promise<any>;
 }
 
 class Api implements IApi {
@@ -14,50 +13,86 @@ class Api implements IApi {
         this.baseUrl = baseUrl;
     }
 
-    async getData(endpoint, authToken = null): Promise<any> {
+    private async request(endpoint: string, method: string, body?: any, authToken?: string | null): Promise<any> {
         try {
-            const res = await fetch(`${this.baseUrl}/${endpoint}/`);
+            const headers: HeadersInit = {
+                "Content-Type": "application/json",
+            };
+            if (authToken) headers["Authorization"] = `Bearer ${authToken}`;
+
+            const res = await fetch(`${this.baseUrl}/${endpoint}`, {
+                method,
+                headers,
+                body: body ? JSON.stringify(body) : undefined,
+            });
+
             if (!res.ok) {
-                throw new Error('Не вдалося завантажити пости');
+                const errorResponse = await res.json().catch(() => null);
+                throw new Error(errorResponse?.message || `HTTP Error ${res.status}`);
             }
-            const data = (await res.json()).data;
-            return data
+
+            return await res.json().catch(() => null);
         } catch (err: any) {
-            throw new Error(err.message || 'Невідома помилка');
+            throw new Error(err.message || "Невідома помилка");
         }
     }
 
-    async postData(endpoint, body, authToken = null): Promise<any> {
+    async getData(endpoint: string, authToken = null): Promise<any> {
+        const response = await this.request(endpoint, "GET", undefined, authToken);
+        return response?.data || response;
+    }
+
+    async postData(endpoint: string, body: any, authToken: string | null = null): Promise<any> {
         try {
+            const headers: HeadersInit = {
+                "Content-Type": "application/json",
+            };
+            if (authToken) headers["Authorization"] = `Bearer ${authToken}`;
+
             const res = await fetch(`${this.baseUrl}/${endpoint}/`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    // Authorization: `Bearer ${authToken}`,
-                },
-                body: JSON.stringify(body),
+                method: "POST",
+                headers,
+                body: JSON.stringify({ data: body }),
             });
-            return (await res.json()).data;
+
+            const responseData = await res.json().catch(() => null);
+
+
+            return responseData?.data || responseData;
         } catch (err: any) {
-            throw new Error(err.message || 'Невідома помилка');
+            throw new Error(err.message || "Невідома помилка");
         }
     }
 
-    async deleteData(endpoint, id, authToken = null): Promise<any> {
+    async putData(endpoint: string, body: any, authToken: string | null = null): Promise<any> {
         try {
-            const res = await fetch(`${this.baseUrl}/${endpoint}/${id}/`, {
-                method: 'DELETE',
-                headers: {
-                    // Authorization: `Bearer ${authToken}`,
-                },
+            const headers: HeadersInit = {
+                "Content-Type": "application/json",
+            };
+            if (authToken) headers["Authorization"] = `Bearer ${authToken}`;
+
+            const res = await fetch(`${this.baseUrl}/${endpoint}/`, {
+                method: "PUT",
+                headers,
+                body: JSON.stringify({ data: body }),
             });
-            return (await res.json()).data;
+
+            const responseData = await res.json().catch(() => null);
+
+            return responseData?.data || responseData;
         } catch (err: any) {
-            throw new Error(err.message || 'Невідома помилка');
+            throw new Error(err.message || "Невідома помилка");
         }
+    }
+
+
+
+    async deleteData(endpoint: string, id: number, authToken = null): Promise<any> {
+        const response = await this.request(`${endpoint}/${id}/`, "DELETE", undefined, authToken);
+        return response?.data || response;
     }
 }
 
-// singleton
+// Singleton
 const api = new Api();
 export default api;

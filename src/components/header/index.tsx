@@ -12,7 +12,10 @@ const Header = () => {
                             <a href="/blog">Blog</a>
                         </li>
                         <li>
-                            <a href="/contact">Contact</a>
+                            <a href="/contact_us">Contact us</a>
+                        </li>
+                        <li>
+                            <a href="/services">Service</a>
                         </li>
                     </ul>
                 </nav>
