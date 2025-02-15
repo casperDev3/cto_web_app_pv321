@@ -16,7 +16,7 @@ export default function ContactForm() {
         const message = formData.get('message') as string;
 
         if (!name || !email || !message) {
-            showToast('Будь ласка, заповніть обов\'язкові поля: Ім\'я, Email та Повідомлення.','error');
+            showToast.error('Будь ласка, заповніть обов\'язкові поля: Ім\'я, Email та Повідомлення.');
             return;
         }
 
@@ -29,13 +29,13 @@ export default function ContactForm() {
             });
 
             if (response.success) {
-                showToast('Запит успішно відправлено!','success');
+                showToast.success('Запит успішно відправлено!');
                 form.reset();
             } else {
-                showToast(response.message || 'Помилка при відправці форми.', 'error');
+                showToast.error(response.message || 'Помилка при відправці форми.');
             }
         } catch (error) {
-            showToast('Сталася помилка при відправці форми.', 'error');
+            showToast.error('Сталася помилка при відправці форми.';)
         }
     };
 
