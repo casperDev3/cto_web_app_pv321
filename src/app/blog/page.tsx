@@ -53,7 +53,6 @@ const BlogPage = () => {
 
     const handleRemove = async (post: Post) => {
         const data = await api.deleteData("blog", post.id);
-        // remove post from the list
         data && setPosts(posts.filter(p => p.id !== post.id));
         data && showToast.success('Пост успішно видалено');
     }
