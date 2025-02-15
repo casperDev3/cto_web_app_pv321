@@ -14,7 +14,6 @@ export default function Home() {
                 <li>
                     <Link href={'/reviews'}>Reviews</Link>
                 </li>
-                {/* Додаємо посилання на вашу сторінку профілактичного обслуговування */}
                 <li>
                     <Link href={'/prevention'}>Prevention Services</Link>
                 </li>
