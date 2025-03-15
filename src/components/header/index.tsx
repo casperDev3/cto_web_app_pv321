@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const Header = () => {
     return (
         <>
@@ -17,7 +15,7 @@ const Header = () => {
                             <a href="/contact">Contact</a>
                         </li>
                         <li>
-                            <Link href="/Contact_info">General Information</Link>
+                            <a href="http://127.0.0.1:8000/api/general-info/"> Create General info</a>
                         </li>
                     </ul>
                 </nav>
