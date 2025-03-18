@@ -15,7 +15,7 @@ const Header = () => {
                             <a href="/contact">Contact</a>
                         </li>
                         <li>
-                            <a href="http://127.0.0.1:8000/api/general-info/"> Create General info</a>
+                          <a href="/src/ContactInfo/index.tsx">General information</a>
                         </li>
                     </ul>
                 </nav>
